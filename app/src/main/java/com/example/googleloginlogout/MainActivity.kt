@@ -3,6 +3,7 @@ package com.example.googleloginlogout
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         logout.setOnClickListener {
             mGoogleSignInClient.signOut().addOnCompleteListener {
                 val intent= Intent(this, LoginScreen::class.java)
+                Toast.makeText(this,"Logging Out",Toast.LENGTH_SHORT).show()
                 startActivity(intent)
                 finish()
             }
